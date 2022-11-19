@@ -13,8 +13,6 @@
 
 * [Contributing](#contributing)
 
-* [Tests](#tests)
-
 * [License](#license)
 
 * [Questions](#questions)
@@ -37,10 +35,6 @@ Use the get, post, put, and delete routes to view, create, update and delete wit
 
 Jack Warrick
 
-## Tests
-
-None
-
 ## License
 
 This application is covered under the MIT License.
@@ -51,4 +45,4 @@ For more information, please reference my GitHub profile [here](https://github.c
 
 ## Video
 
-[Link to Demonstration Video]()
+[Link to Demonstration Video](https://drive.google.com/file/d/1-5pkLrsQXKE4vFv8rveNJIAt2ytcPStS/view)

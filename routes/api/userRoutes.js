@@ -1,3 +1,6 @@
+//All of the functionality is imported from the controller and then the routes are defined here
+
+
 const router = require('express').Router();
 const {
   getUsers,
@@ -5,6 +8,8 @@ const {
   createUser,
   updateUser,
   deleteUser,
+  addFriend,
+  deleteFriend
 } = require('../../controllers/userController.js');
 //require the userController.js where all the controls are for the routes
 
@@ -17,5 +22,12 @@ router
   .get(getSingleUser)
   .put(updateUser)
   .delete(deleteUser);
+
+
+// api/users/:userId/friends/:friendId
+router
+.route('/:userId/friends/:friendId')
+.post(addFriend)
+.delete(deleteFriend)
 
 module.exports = router;

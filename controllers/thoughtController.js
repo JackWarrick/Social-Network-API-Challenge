@@ -5,6 +5,8 @@
 //   addReaction,
 //   removeReaction,
 
+//The functionality that allows the routes to work in this file
+
 const { Thought, User } = require('../models');
 
 module.exports = {
@@ -14,7 +16,7 @@ module.exports = {
       .then((thoughts) => res.status(200).json(thoughts))
       .catch((err) => res.status(500).json(err));
   },
-  // Get a user
+  // Get a thought
   getSingleThought(req, res) {
     Thought.findOne({ _id: req.params.thoughtId })
       .select('-__v')
@@ -61,7 +63,7 @@ module.exports = {
   },
 
 
-  //STILL NEED ADD REACTION 
+  //Add a reaction to a thought
   addReaction(req, res) {
 Thought.findOneAndUpdate(
   { _id: req.params.thoughtId },
@@ -79,11 +81,11 @@ Thought.findOneAndUpdate(
   },
 
 
-  //STILL NEED REMOVE REACTION
+  //REMOVE REACTION
   removeReaction(req, res) {
     Thought.findOneAndUpdate(
       { _id: req.params.thoughtId },
-      { $pull: { reactions: { reactionId: req.params.reactionId } } },
+      { $pull: { reactions: req.params.reactionId } },
       { runValidators: true, new: true }
     )
       .then((thought) =>

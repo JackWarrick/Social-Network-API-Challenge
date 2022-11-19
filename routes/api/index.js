@@ -6,3 +6,5 @@ router.use('/thoughts', thoughtRoutes);
 router.use('/users', userRoutes);
 
 module.exports = router;
+
+//Allows the above index.js to take the routes and export them out

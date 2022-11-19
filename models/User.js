@@ -1,3 +1,6 @@
+//The user model is created here - all of the things we want in the user object are defined
+
+
 const { Schema, model } = require('mongoose');
 const thoughtSchema = require('./Thought');
 

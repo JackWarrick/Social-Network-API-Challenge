@@ -1,3 +1,5 @@
+//Connect to the database in this file
+
 const { connect, connection } = require('mongoose');
 
 const connectionString =

@@ -1,3 +1,5 @@
+//The thought model is created here - all of the things we want in the thought object are defined
+
 const { Schema, model } = require('mongoose');
 const reactionSchema = require('./Reaction');
 

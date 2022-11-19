@@ -1,3 +1,4 @@
+//The Reaction not model but schema is created here - it just gives to the thought model
 const { Schema, Types } = require('mongoose');
 
 const reactionSchema = new Schema(

@@ -1,4 +1,4 @@
-const { Schema, Types } = require('mongoose');
+const { Schema, model } = require('mongoose');
 const thoughtSchema = require('./Thought');
 
 const userSchema = new Schema(
@@ -17,9 +17,15 @@ const userSchema = new Schema(
         // It must match this regular expression, which is an email regular expression, explained in my gist: https://gist.github.com/JackWarrick/10354306807f146d87b1661a2e34bf18
     
     },
-    thoughts: [thoughtSchema],
+    thoughts: [{
+      type: Schema.Types.ObjectId,
+      ref: 'thought'
+    }],
 
-    friends: [userSchema],
+    friends: [{
+      type: Schema.Types.ObjectId,
+      ref: 'user'
+    }],
   },
   {
     toJSON: {
@@ -37,7 +43,9 @@ userSchema.virtual('friendCount').get(function () {
 
 //the model is named 'user'
 
-module.exports = mongoose.model('user', userSchema)
+const User = model('user', userSchema);
+
+module.exports = User
 
 
 

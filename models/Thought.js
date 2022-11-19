@@ -1,4 +1,4 @@
-const { Schema, Types } = require('mongoose');
+const { Schema, model } = require('mongoose');
 const reactionSchema = require('./Reaction');
 
 const thoughtSchema = new Schema(
@@ -13,7 +13,7 @@ const thoughtSchema = new Schema(
       type: String,
       type: Date,
       default: Date.now,
-
+      get: (timestamp) => timestamp.toLocaleDateString()
       //Use a getter method to format the timestamp on query
       
     },
@@ -38,6 +38,6 @@ thoughtSchema.virtual('reactionCount').get(function () {
 });
 
 
+const Thought = model('thought', thoughtSchema)
 
-
-module.exports = mongoose.model('thought', thoughtSchema)
+module.exports = Thought
